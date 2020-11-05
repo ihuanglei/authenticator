@@ -1,0 +1,48 @@
+# log level 0 panic 1 fatal 2 error 3 warn 4 info 5 debug 6 trace
+log: 5
+
+# server
+server:
+  # node index
+  id: 1
+  # server host
+  # host: 0.0.0.0
+  # server port
+  # port: 9990
+  # token secret
+  secret: test
+  # token expire (day)
+  expire: 30
+
+# database mysql
+mysql:
+  host: mysql.a
+  port: 3306
+  user: root
+  password: 123456
+  database: authenticator
+  max_idle_conns: 10
+  max_open_conns: 20
+  # 单位：秒(second)
+  max_life_time: 60
+  # show sql log
+  show_sql: true
+  # 是否自动同步数据库结构，生成环境建议关闭
+  sync: true
+  # 启用缓存(单台机器)
+  use_cache: false
+
+
+# redis,memory 支持缓存的方案,选择对应的缓存方案对应的配置也需要修改
+# cache: [memory|redis]
+cache: memory
+
+memory:
+  size: 2048
+
+# redis config
+redis:
+  host: redis.a
+  port: 6379
+  password:
+  db: 9

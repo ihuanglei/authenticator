@@ -1,0 +1,19 @@
+[Unit]
+Description=Authenticator
+Wants=network.target
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/etc/authenticator
+ExecStart=/usr/local/bin/authenticator -c auth.conf.yml
+Restart=on-failure
+RestartSec=10
+startLimitIntervalSec=60
+
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=authenticator
+
+[Install]
+WantedBy=multi-user.target
